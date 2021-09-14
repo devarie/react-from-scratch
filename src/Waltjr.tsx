@@ -51,6 +51,8 @@ const Weerupdate = () => {
           quote te laten zien. (truthy betekent een soort van true haha. Dus als het niet null of undefined is dan is  het truthy) als je dit deel weggaat zie je een TS error */}
             {/* <p>windrichting:{items && items.liveweer[0].temp} </p> */}
             <h1>Current Wheater</h1>
+            <input value={location} onChange={handleInputChange} />
+            <button onClick={fetchItems}>Get Wheater </button>
             {weer && (
                 <div>
                     <p>Location:{weer.plaats}</p>
@@ -59,8 +61,6 @@ const Weerupdate = () => {
                     <p>windspeed knots:{weer.d0windknp}</p>
                 </div>
             )}
-            <input value={location} onChange={handleInputChange} />
-            <button onClick={fetchItems}>Get Wheater </button>
         </div>
     );
 };
