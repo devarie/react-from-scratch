@@ -13,8 +13,8 @@ interface Liveweer {
     // series: 'Breaking bad'; // in dit geval is dit denk ik altijd Breaking bad. Je zou ook string kunnen doen maar met Typescript is het hoe preciezer hoe beter
 }
 
-const Weerupdate = () => {
-    const [weer, setWeer] = useState<null | Liveweer>(null); // Quote[] betekent dat het een array met Quote Objects is
+const Weatherupdate = () => {
+    const [weather, setWeather] = useState<null | Liveweer>(null); // Quote[] betekent dat het een array met Quote Objects is
     const [location, setLocation] = useState('Amsterdam');
     const handleInputChange = useCallback(
         (e) => {
@@ -29,7 +29,7 @@ const Weerupdate = () => {
             );
             console.log('dadsada', response);
 
-            setWeer(response.data?.liveweer?.[0]);
+            setWeather(response.data?.liveweer?.[0]);
         } catch (error) {
             console.error(error);
         }
@@ -53,19 +53,19 @@ const Weerupdate = () => {
             <h1>Current Wheater</h1>
             <input value={location} onChange={handleInputChange} />
             <button onClick={fetchItems}>Get Wheater </button>
-            {weer && (
+            {weather && (
                 <div>
-                    <p>Location:{weer.plaats}</p>
-                    <p>temp:{weer.temp}</p>
-                    <p>wind direction:{weer.windr}</p>
-                    <p>windspeed knots:{weer.d0windknp}</p>
+                    <p>Location:{weather.plaats}</p>
+                    <p>temp:{weather.temp}</p>
+                    <p>wind direction:{weather.windr}</p>
+                    <p>windspeed knots:{weather.d0windknp}</p>
                 </div>
             )}
         </div>
     );
 };
 
-export default Weerupdate;
+export default Weatherupdate;
 //     return (
 //       <div className='container'>
 //         <Header />
